@@ -288,12 +288,14 @@ a {
 
 /* Hero Section */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 
 .hero-bg {
@@ -342,7 +344,8 @@ a {
 
 .hero-ctas {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .hero-right {
@@ -383,7 +386,7 @@ a {
 
 .scroll-indicator {
   position: absolute;
-  bottom: 3rem;
+  bottom: 2rem;
   left: var(--px);
   display: flex;
   flex-direction: column;

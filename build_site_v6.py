@@ -290,12 +290,14 @@ a {
 
 /* Hero Section */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 
 .hero-bg {
@@ -344,7 +346,8 @@ a {
 
 .hero-ctas {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .hero-right {
@@ -385,7 +388,7 @@ a {
 
 .scroll-indicator {
   position: absolute;
-  bottom: 3rem;
+  bottom: 2rem;
   left: var(--px);
   display: flex;
   flex-direction: column;
@@ -1560,7 +1563,7 @@ html_content = """<!DOCTYPE html>
           </ul>
         </div>
         <div class="reveal" style="position: relative; border-radius: 1rem; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); aspect-ratio: 4/5; max-width: 400px; margin: 0 auto;">
-          <img src="Image/image-pdg.JPG" alt="PDG Meilleure Menuiserie du Bénin" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+          <img src="Image/pourquoi_nous.jpg" alt="PDG Meilleure Menuiserie du Bénin" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
         </div>
       </div>
     </section>
