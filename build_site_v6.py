@@ -875,6 +875,7 @@ a {
     gap: 4rem;
   }
   .hero-left { margin: 0 auto; }
+  .hero-ctas { justify-content: center; }
   .hero-right { justify-content: center; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .savoir-grid, .pourquoi-grid, .contact-grid { grid-template-columns: 1fr; }
@@ -901,8 +902,18 @@ a {
   .menu-toggle { display: block; }
   .chiffres-grid { grid-template-columns: 1fr 1fr; }
   .f-grid { grid-template-columns: 1fr; }
-  .hero-ctas { flex-direction: column; }
-  .btn-primary, .btn-secondary { width: 100%; }
+  .hero-ctas { 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    width: 100%; 
+  }
+  .btn-primary, .btn-secondary { 
+    width: 100%; 
+    max-width: 320px; 
+    text-align: center; 
+    justify-content: center; 
+  }
 }
 
 /* Custom Cursor */
