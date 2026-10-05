@@ -209,6 +209,7 @@ a {
 .nav-cta:hover {
   background: var(--c-blanc);
   color: var(--c-espresso);
+  border: 1px solid transparent;
 }
 
 .menu-toggle {
@@ -255,6 +256,7 @@ a {
   justify-content: center;
   background: var(--c-blanc);
   color: var(--c-espresso);
+  border: 1px solid transparent;
   padding: 1rem 2rem;
   border-radius: 100px;
   font-size: 0.8rem;
@@ -348,6 +350,7 @@ a {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .hero-right {
