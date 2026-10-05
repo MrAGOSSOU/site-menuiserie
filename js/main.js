@@ -9,9 +9,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenu = document.querySelector('.mobile-menu');
   
   if(menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', () => {
+    const toggleMenu = () => {
       mobileMenu.classList.toggle('open');
-      menuToggle.textContent = mobileMenu.classList.contains('open') ? 'FERMER' : 'MENU';
+      const isOpen = mobileMenu.classList.contains('open');
+      const hamburger = menuToggle.querySelector('.hamburger-icon');
+      const closeIcon = menuToggle.querySelector('.close-icon');
+      if (hamburger && closeIcon) {
+        hamburger.style.display = isOpen ? 'none' : 'block';
+        closeIcon.style.display = isOpen ? 'block' : 'none';
+      } else {
+        menuToggle.textContent = isOpen ? 'FERMER' : 'MENU';
+      }
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    const mobileLinks = mobileMenu.querySelectorAll('.nav-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', toggleMenu);
     });
   }
 
