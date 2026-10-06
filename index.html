@@ -26,16 +26,26 @@
           pointer-events: auto;
         }
         .lightbox-content {
-          max-width: 90%;
-          max-height: 80vh;
+          width: 90vw;
+          height: 80vh;
           position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         .lightbox-img {
+          position: absolute;
           max-width: 100%;
-          max-height: 80vh;
+          max-height: 100%;
           object-fit: contain;
           border-radius: 5px;
           box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+          opacity: 0;
+          transition: opacity 0.8s ease;
+        }
+        .lightbox-img.active {
+          opacity: 1;
+          z-index: 2;
         }
         .lightbox-close, .lightbox-prev, .lightbox-next {
           position: absolute;
@@ -44,6 +54,7 @@
           cursor: pointer;
           user-select: none;
           transition: color 0.3s;
+          z-index: 10;
         }
         .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
           color: var(--c-bois-chaud);
@@ -263,10 +274,8 @@
         .bento-card:nth-child(3) { grid-column: span 1; grid-row: span 1; }
         .bento-card:nth-child(4) { grid-column: span 2; grid-row: span 1; }
         .bento-card:nth-child(5) { grid-column: span 1; grid-row: span 2; }
-        .bento-card:nth-child(6) { grid-column: span 1; grid-row: span 1; }
-        .bento-card:nth-child(7) { grid-column: span 2; grid-row: span 1; }
-        .bento-card:nth-child(8) { grid-column: span 1; grid-row: span 1; }
-        .bento-card:nth-child(9) { grid-column: span 2; grid-row: span 1; }
+        .bento-card:nth-child(6) { grid-column: span 3; grid-row: span 1; }
+        .bento-card:nth-child(7) { grid-column: span 3; grid-row: span 1; }
 
         @media (max-width: 900px) {
           .services-bento {
@@ -277,7 +286,6 @@
           .bento-card:nth-child(n+2) { grid-column: span 1; grid-row: span 1; }
           .bento-card:nth-child(4) { grid-column: span 2; grid-row: span 1; }
           .bento-card:nth-child(7) { grid-column: span 2; grid-row: span 1; }
-          .bento-card:nth-child(9) { grid-column: span 2; grid-row: span 1; }
         }
         @media (max-width: 600px) {
           .services-bento {
@@ -289,67 +297,56 @@
       </style>
 
       <div class="services-bento">
-        <a href="#" data-cat="cuisines" class="bento-card reveal open-lightbox-btn">
+        <a href="#" data-cat="cuisines-haut-standing" class="bento-card reveal open-lightbox-btn">
           <img src="Image/image2-cuisine.JPG">
           <div class="bento-overlay">
             <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">01 — CUISINES SUR MESURE</span>
-            <h3 class="t-h3" style="color: white; margin: 0;">Cuisines</h3>
+            <h3 class="t-h3" style="color: white; margin: 0;">Cuisines de haut standing</h3>
           </div>
         </a>
-        <a href="#" data-cat="dressings" class="bento-card reveal open-lightbox-btn" style="transition-delay: 0.1s;">
+        <a href="#" data-cat="dressings-lumineux-luxueux" class="bento-card reveal open-lightbox-btn" style="transition-delay: 0.1s;">
           <img src="Image/image4-dressing.jpg">
           <div class="bento-overlay">
             <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">02 — DRESSINGS</span>
-            <h3 class="t-h3" style="color: white; margin: 0;">Dressings</h3>
+            <h3 class="t-h3" style="color: white; margin: 0;">Dressings lumineux luxueux</h3>
           </div>
         </a>
-        <a href="#" data-cat="salons" class="bento-card reveal open-lightbox-btn" style="transition-delay: 0.2s;">
-          <img src="Image/Salon_new.jpg">
+
+        <a href="#" data-cat="lit" class="bento-card reveal open-lightbox-btn">
+          <img src="Image/LIT/252dca03e694004797ac2ceb193dd414.jpg" alt="Chambres">
           <div class="bento-overlay">
-            <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">03 — SALONS</span>
-            <h3 class="t-h3" style="color: white; margin: 0;">Salons</h3>
-          </div>
-        </a>
-        <a href="#" data-cat="chambres" class="bento-card reveal open-lightbox-btn">
-          <img src="Image/Lit_new.jpg" alt="Chambres">
-          <div class="bento-overlay">
-            <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">04 — CHAMBRES</span>
-            <h3 class="t-h3" style="color: white; margin: 0;">Chambres</h3>
+            <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">03 — CHAMBRES</span>
+            <h3 class="t-h3" style="color: white; margin: 0;">Lit</h3>
           </div>
         </a>
         <a href="#" data-cat="bureaux" class="bento-card reveal open-lightbox-btn" style="transition-delay: 0.1s;">
           <img src="Image/Bureau_new.jpg">
           <div class="bento-overlay">
-            <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">05 — BUREAUX</span>
+            <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">04 — BUREAUX</span>
             <h3 class="t-h3" style="color: white; margin: 0;">Bureaux</h3>
           </div>
         </a>
-        <a href="#" data-cat="dressings" class="bento-card reveal open-lightbox-btn" style="transition-delay: 0.2s;">
-          <img src="Image/IMG_9230.JPG">
+
+        <a href="#" data-cat="meubles-tv" class="bento-card reveal open-lightbox-btn">
+          <img src="Image/Meubles TV/IMG_9515.JPG">
           <div class="bento-overlay">
-            <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">06 — RANGEMENTS</span>
-            <h3 class="t-h3" style="color: white; margin: 0;">Rangements</h3>
-          </div>
-        </a>
-        <a href="#" data-cat="salons" class="bento-card reveal open-lightbox-btn">
-          <img src="Image/IMG_9227.JPG">
-          <div class="bento-overlay">
-            <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">07 — MEUBLES TV</span>
+            <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">05 — MEUBLES TV</span>
             <h3 class="t-h3" style="color: white; margin: 0;">Meubles TV</h3>
           </div>
         </a>
-        <a href="#" data-cat="salons" class="bento-card reveal open-lightbox-btn" style="transition-delay: 0.1s;">
-          <img src="Image/IMG_9285.JPG">
-          <div class="bento-overlay">
-            <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">08 — DÉCORATION</span>
-            <h3 class="t-h3" style="color: white; margin: 0;">Intérieurs</h3>
-          </div>
-        </a>
+
         <a href="#" data-cat="salles-de-bain" class="bento-card reveal open-lightbox-btn" style="transition-delay: 0.2s;">
           <img src="Image/salle_de_bain_new.jpg">
           <div class="bento-overlay">
-            <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">09 — SALLES DE BAIN</span>
+            <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">06 — SALLES DE BAIN</span>
             <h3 class="t-h3" style="color: white; margin: 0;">Salles de bain</h3>
+          </div>
+        </a>
+        <a href="#" data-cat="dressing-individuel" class="bento-card reveal open-lightbox-btn" style="transition-delay: 0.3s;">
+          <img src="Image/Dressing individuel/IMG_9530.JPG" style="object-position: top;">
+          <div class="bento-overlay">
+            <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">07 — DRESSING</span>
+            <h3 class="t-h3" style="color: white; margin: 0;">Dressing individuel</h3>
           </div>
         </a>
       </div>

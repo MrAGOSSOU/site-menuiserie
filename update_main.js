@@ -1,180 +1,6 @@
+const fs = require('fs');
 
-// Smooth Scroll & Lenis Setup
-// For the sake of simplicity without external dependencies, we implement basic smooth scroll and observers.
-// In a real env, import Lenis.
-
-document.addEventListener("DOMContentLoaded", () => {
-  // Mobile Menu
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  
-  if(menuToggle && mobileMenu) {
-    const toggleMenu = () => {
-      mobileMenu.classList.toggle('open');
-      const isOpen = mobileMenu.classList.contains('open');
-      const hamburger = menuToggle.querySelector('.hamburger-icon');
-      const closeIcon = menuToggle.querySelector('.close-icon');
-      if (hamburger && closeIcon) {
-        hamburger.style.display = isOpen ? 'none' : 'block';
-        closeIcon.style.display = isOpen ? 'block' : 'none';
-      } else {
-        menuToggle.textContent = isOpen ? 'FERMER' : 'MENU';
-      }
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    };
-
-    menuToggle.addEventListener('click', toggleMenu);
-
-    const mobileLinks = mobileMenu.querySelectorAll('.nav-link');
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', toggleMenu);
-    });
-  }
-
-  // Navbar background on scroll
-  const navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', () => {
-    if(window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-
-  // Reveal Animations
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15
-  };
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        obs.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.reveal').forEach(el => {
-    observer.observe(el);
-  });
-
-  // Parallax Images
-  const pImages = document.querySelectorAll('.parallax-img');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    pImages.forEach(img => {
-      const speed = img.getAttribute('data-speed') || 0.1;
-      img.style.transform = `translateY(${y * speed}px)`;
-    });
-  });
-
-  // Timeline Progress
-  const timeline = document.querySelector('.timeline');
-  const progress = document.querySelector('.timeline-progress');
-  if(timeline && progress) {
-    window.addEventListener('scroll', () => {
-      const rect = timeline.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      if(rect.top < windowHeight && rect.bottom > 0) {
-        let percentage = (windowHeight - rect.top) / (rect.height + windowHeight) * 100;
-        percentage = Math.max(0, Math.min(100, percentage));
-        progress.style.height = `${percentage}%`;
-      }
-    });
-  }
-
-  // FAQ Accordion
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const q = item.querySelector('.faq-q');
-    q.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-      faqItems.forEach(i => i.classList.remove('active'));
-      if(!isActive) item.classList.add('active');
-    });
-  });
-
-  
-  // Savoir-Faire Scroll Fade
-  const fader = document.getElementById('savoir-fader');
-  const fadeImgs = document.querySelectorAll('.fade-img');
-  if(fader && fadeImgs.length > 0) {
-    window.addEventListener('scroll', () => {
-      const rect = fader.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      // If fader is in viewport
-      if (rect.top < windowHeight && rect.bottom > 0) {
-        // Calculate scroll progress (0 to 1) over the fader element
-        const totalScrollDistance = windowHeight + rect.height;
-        const currentScroll = windowHeight - rect.top;
-        const progress = Math.max(0, Math.min(1, currentScroll / totalScrollDistance));
-        
-        const total = fadeImgs.length;
-        // Find which image index corresponds to the progress
-        const index = Math.min(total - 1, Math.floor(progress * total));
-        
-        fadeImgs.forEach((img, i) => {
-          if (i === index) {
-            img.style.opacity = 1;
-            img.style.zIndex = 2;
-          } else {
-            img.style.opacity = 0;
-            img.style.zIndex = 1;
-          }
-        });
-      }
-    });
-  }
-
-  // Custom Cursor
-  const cursorDot = document.querySelector('.cursor-dot');
-  const cursorRing = document.querySelector('.cursor-ring');
-  
-  if(cursorDot && cursorRing && matchMedia('(pointer:fine)').matches) {
-    let mouseX = 0;
-    let mouseY = 0;
-    let ringX = 0;
-    let ringY = 0;
-    
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      
-      cursorDot.style.left = mouseX + 'px';
-      cursorDot.style.top = mouseY + 'px';
-    });
-    
-    const renderCursor = () => {
-      ringX += (mouseX - ringX) * 0.15;
-      ringY += (mouseY - ringY) * 0.15;
-      
-      cursorRing.style.left = ringX + 'px';
-      cursorRing.style.top = ringY + 'px';
-      
-      requestAnimationFrame(renderCursor);
-    };
-    
-    requestAnimationFrame(renderCursor);
-  }
-
-  // Hero Slideshow
-  const slides = document.querySelectorAll('.hero-bg.slide');
-  let currentSlide = 0;
-  if (slides.length > 0) {
-    setInterval(() => {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }, 4000);
-  }
-});
-
-
-
+const galleryDataStr = `
 const galleryData = {
   "cuisines": [
     "Image/cuisines/57a4fc203dcb2d454a1e8f4522ed4c80.jpg",
@@ -276,21 +102,17 @@ const galleryData = {
     "Image/Cuisines de haut standing/photo4-cuisine.JPG"
   ],
   "dressings-lumineux-luxueux": [
-    "Image/Dressings lumineux luxeux/IMG_9613.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9614.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9615.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9616.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9617.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9618.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9619.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9620.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9621.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9622.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9623.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9624.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9625.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9626.JPG",
-    "Image/Dressings lumineux luxeux/IMG_9627.JPG"
+    "Image/Dressings lumineux luxeux/02de764d6a52aaa24c4050a298967ead.jpg",
+    "Image/Dressings lumineux luxeux/099211b3ba76d0a8ceddf42092ef47ea.jpg",
+    "Image/Dressings lumineux luxeux/0eb2dd96ad2b897d16983500f0b69ccc.jpg",
+    "Image/Dressings lumineux luxeux/1e29b03451c3cab885e0216801319c55.jpg",
+    "Image/Dressings lumineux luxeux/36a439065c3ed385a9e6414e7cb7638a.jpg",
+    "Image/Dressings lumineux luxeux/5dd25528ca083d60eb3a497a74b3aa0b.jpg",
+    "Image/Dressings lumineux luxeux/7c0fb3301e851dfd196c678b37ab995b.jpg",
+    "Image/Dressings lumineux luxeux/911d67db50bcfc24389ac3af9f0e9bc5.jpg",
+    "Image/Dressings lumineux luxeux/acf583f2cd5ae81a5167ca8fdf1ab179.jpg",
+    "Image/Dressings lumineux luxeux/bd040f77902ff7d6a4db488f3a3d1911.jpg",
+    "Image/Dressings lumineux luxeux/c28a4f20dd3d6430d244a8d275076b1c.jpg"
   ],
   "lit": [
     "Image/LIT/252dca03e694004797ac2ceb193dd414.jpg",
@@ -320,12 +142,6 @@ const galleryData = {
     "Image/LIT/aa28583344a9f91b3168b15ccd38b8ab.jpg"
   ],
   "dressing-individuel": [
-    "Image/Dressing individuel/02de764d6a52aaa24c4050a298967ead.jpg",
-    "Image/Dressing individuel/099211b3ba76d0a8ceddf42092ef47ea.jpg",
-    "Image/Dressing individuel/0eb2dd96ad2b897d16983500f0b69ccc.jpg",
-    "Image/Dressing individuel/1e29b03451c3cab885e0216801319c55.jpg",
-    "Image/Dressing individuel/5dd25528ca083d60eb3a497a74b3aa0b.jpg",
-    "Image/Dressing individuel/911d67db50bcfc24389ac3af9f0e9bc5.jpg",
     "Image/Dressing individuel/IMG_9530.JPG",
     "Image/Dressing individuel/IMG_9531.JPG",
     "Image/Dressing individuel/IMG_9532.JPG",
@@ -353,8 +169,7 @@ const galleryData = {
     "Image/Dressing individuel/IMG_9554.JPG",
     "Image/Dressing individuel/IMG_9555.JPG",
     "Image/Dressing individuel/IMG_9556.JPG",
-    "Image/Dressing individuel/IMG_9557.JPG",
-    "Image/Dressing individuel/bd040f77902ff7d6a4db488f3a3d1911.jpg"
+    "Image/Dressing individuel/IMG_9557.JPG"
   ],
   "meubles-tv": [
     "Image/Meubles TV/14194bf12dd9a2505c2b01d4f6a3f9de.jpg",
@@ -380,6 +195,8 @@ const galleryData = {
     "Image/Meubles TV/f8c76b55c40475e20afec396b7be8bab.jpg"
   ]
 };
+
+// LIGHTBOX LOGIC
 let currentCategory = [];
 let currentIndex = 0;
 let autoplayTimer = null;
@@ -388,7 +205,7 @@ const AUTOPLAY_INTERVAL = 4500;
 
 const lightbox = document.createElement('div');
 lightbox.className = 'lightbox';
-lightbox.innerHTML = `
+lightbox.innerHTML = \`
   <div class="lightbox-close">&times;</div>
   <div class="lightbox-prev">&#10094;</div>
   <div class="lightbox-next">&#10095;</div>
@@ -396,7 +213,7 @@ lightbox.innerHTML = `
     <img class="lightbox-img active" src="" alt="Gallery Image">
     <img class="lightbox-img next-img" src="" alt="Gallery Image">
   </div>
-`;
+\`;
 document.body.appendChild(lightbox);
 
 const lightboxImg1 = lightbox.querySelector('.lightbox-img.active');
@@ -413,6 +230,7 @@ function openLightbox(category) {
     currentCategory = galleryData[category];
     currentIndex = 0;
     
+    // reset state
     isTransitioning = false;
     activeImgEl.src = currentCategory[currentIndex];
     activeImgEl.classList.add('active');
@@ -421,6 +239,7 @@ function openLightbox(category) {
     nextImgEl.classList.remove('active');
     nextImgEl.style.opacity = 0;
 
+    // preload next
     if (currentCategory.length > 1) {
       const preloadImg = new Image();
       preloadImg.src = currentCategory[1];
@@ -461,23 +280,27 @@ function transitionTo(index) {
   else if (index >= currentCategory.length) index = 0;
   
   currentIndex = index;
+  
   nextImgEl.src = currentCategory[currentIndex];
   
+  // start crossfade
   nextImgEl.classList.add('active');
   nextImgEl.style.opacity = 1;
   activeImgEl.style.opacity = 0;
   
   setTimeout(() => {
     activeImgEl.classList.remove('active');
+    // swap pointers
     const temp = activeImgEl;
     activeImgEl = nextImgEl;
     nextImgEl = temp;
     isTransitioning = false;
     
+    // preload next
     let nextIndex = (currentIndex + 1) % currentCategory.length;
     const preloadImg = new Image();
     preloadImg.src = currentCategory[nextIndex];
-  }, 800);
+  }, 800); // matches CSS transition duration
 }
 
 function nextSlideManually() {
@@ -509,6 +332,7 @@ nextBtn.addEventListener('click', (e) => {
   nextSlideManually();
 });
 
+// Swipe Mobile Support
 let touchStartX = 0;
 let touchEndX = 0;
 
@@ -557,10 +381,16 @@ window.submitDevis = function(e) {
   const projet = document.getElementById('devis-projet').value;
   const message = document.getElementById('devis-message').value;
   
-  const text = `Bonjour, je suis ${nom}.\nJe souhaite demander un devis pour un projet de type : ${projet}.\nDétails : ${message}`;
-  const whatsappUrl = `https://wa.me/22967585650?text=${encodeURIComponent(text)}`;
+  const text = \`Bonjour, je suis \${nom}.\\nJe souhaite demander un devis pour un projet de type : \${projet}.\\nDétails : \${message}\`;
+  const whatsappUrl = \`https://wa.me/22967585650?text=\${encodeURIComponent(text)}\`;
   
   window.open(whatsappUrl, '_blank');
   document.getElementById('devis-modal').classList.remove('active');
   document.getElementById('devis-form').reset();
 };
+\`
+
+const originalMainJs = fs.readFileSync('js/main.js', 'utf8');
+const replaceIndex = originalMainJs.indexOf('const galleryData = {');
+const newMainJs = originalMainJs.substring(0, replaceIndex) + galleryDataStr;
+fs.writeFileSync('js/main.js', newMainJs);
