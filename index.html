@@ -73,7 +73,6 @@
       <a href="#processus" class="nav-link">Notre Processus</a>
       <a href="#a-propos" class="nav-link">À Propos</a>
       <a href="#faq" class="nav-link">FAQ</a>
-    <a href="#" onclick="document.getElementById('devis-modal').classList.add('active'); document.querySelector('.mobile-menu').classList.remove('open'); return false;" class="nav-cta" style="margin-top: 1rem; text-align: center; display: block;">Demander un devis</a>
     </div>
     <a href="#" onclick="document.getElementById('devis-modal').classList.add('active'); return false;" class="nav-cta">Demander un devis</a>
     <button class="menu-toggle" aria-label="Menu">
@@ -112,13 +111,9 @@
       
       <div class="container hero-content">
         <div class="hero-left reveal">
-          <span class="t-label hero-label">MENUISERIE & DESIGN INTÉRIEUR — BÉNIN</span>
+          <span class="t-label hero-label">LA MEILLEURE MENUISERIE DU BÉNIN</span>
           <h1 class="t-display">L'EXCELLENCE<br><span class="t-italic">sur mesure.</span></h1>
-          <p class="t-body hero-desc">Nous concevons et réalisons des meubles et aménagements intérieurs sur mesure, pensés pour votre espace, votre style et les réalités du climat béninois.</p>
-          <div class="hero-ctas">
-            <a href="#contact" class="btn-primary">Parler de mon projet</a>
-            <a href="#realisations" class="btn-secondary">Voir nos réalisations</a>
-          </div>
+          <p class="t-body hero-desc">Nous concevons et réalisons des meubles et aménagements intérieurs sur mesure, adaptés à votre espace, à votre style et aux exigences du climat béninois.</p>
         </div>
         
         <div class="hero-right reveal" style="transition-delay: 0.2s;">
@@ -133,7 +128,7 @@
             </div>
             <div class="glass-item">
               <div class="glass-item-title">Haute qualité</div>
-              <div class="glass-item-desc">Matériaux premium</div>
+              <div class="glass-item-desc">Matériaux premium<br>Fabrication locale</div>
             </div>
           </div>
         </div>
@@ -146,13 +141,79 @@
     </section>
 
     <!-- INTRO -->
-    <section class="section light-theme">
-      <div class="container vision-section reveal">
-        <span class="t-label">Notre Vision</span>
-        <h2 class="t-h2 vision-text">Nous transformons les espaces en intérieurs qui vous ressemblent.</h2>
-        <div class="vision-divider"></div>
-        <p class="t-body-large" style="margin-top: 3rem;">Chez Meilleure Menuiserie du Bénin, chaque réalisation est pensée comme une pièce unique. Nous associons design contemporain, fabrication sur mesure et matériaux de qualité pour créer des espaces élégants, fonctionnels et durables.</p>
+    <section class="section light-theme" style="position: relative; background-color: #F8F5F0; overflow: hidden; padding: 4rem 0;">
+      <!-- Decorative background elements -->
+      <div style="position: absolute; top: -10%; right: -5%; width: 50vw; height: 50vw; border-radius: 50%; background: rgba(230, 220, 210, 0.5); filter: blur(40px); z-index: 0;"></div>
+      <div style="position: absolute; bottom: -10%; left: -5%; width: 40vw; height: 40vw; border-radius: 50%; background: rgba(230, 220, 210, 0.4); filter: blur(40px); z-index: 0;"></div>
+
+      <div class="container reveal" style="position: relative; z-index: 1; text-align: center; max-width: 1000px; margin: 0 auto; padding-left: 2rem; padding-right: 2rem;">
+        
+        <!-- Side decorative line -->
+        <div class="vision-side-line" style="position: absolute; left: 0; top: 15%; height: 70%; width: 1px; background: rgba(139,90,43,0.3); display: flex; align-items: center; justify-content: center;">
+            <div style="width: 30px; height: 30px; border-radius: 50%; border: 1px solid rgba(139,90,43,0.3); background: #F8F5F0; position: absolute; left: -15px; display: flex; align-items: center; justify-content: center;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--c-bois-chaud);"></div>
+            </div>
+        </div>
+
+        <span class="t-label" style="color: var(--c-bois-chaud); letter-spacing: 0.2em; display: block; margin-bottom: 1rem; text-align: center;">NOTRE VISION</span>
+        
+        <h2 style="font-family: var(--f-serif); font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; color: var(--c-espresso); font-weight: normal; text-align: center;">
+          Nous transformons les espaces<br>
+          <span class="t-italic" style="color: var(--c-bois-chaud);">en intérieurs qui vous ressemblent.</span>
+        </h2>
+        
+        <p class="t-body" style="font-weight: 600; margin: 0 auto 2.5rem; max-width: 800px; color: var(--c-espresso); text-align: center;">Chez MEILLEURE MENUISERIE, chaque réalisation est pensée comme une pièce unique. Nous associons design contemporain, fabrication sur mesure et matériaux soigneusement sélectionnés pour créer des espaces élégants, fonctionnels et durables.</p>
+        
+        <div class="vision-grid-features" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; position: relative; border-top: 1px solid rgba(139,90,43,0.2); padding-top: 2rem;">
+          
+          <div style="padding: 0 1rem; position: relative; text-align: center;">
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(139,90,43,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-bois-chaud)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 15.3l-3.6-3.6a2 2 0 0 0-2.82 0l-9.9 9.9a2 2 0 0 0 0 2.82l3.6 3.6a2 2 0 0 0 2.82 0l9.9-9.9a2 2 0 0 0 0-2.82z"></path><path d="M14.5 16.5l-3-3"></path><path d="M11.5 19.5l-3-3"></path><path d="M8.5 22.5l-3-3"></path></svg>
+            </div>
+            <h4 class="t-label" style="font-weight: bold; margin-bottom: 0.8rem; color: var(--c-espresso); text-align: center;">SUR MESURE</h4>
+            <p class="t-body" style="color: rgba(25,24,23,0.8); font-size: 0.95rem; text-align: center;">Une conception adaptée à votre espace, votre style et vos besoins.</p>
+          </div>
+          
+          <div style="padding: 0 1rem; position: relative; text-align: center;">
+            <div class="vision-grid-divider" style="position: absolute; left: 0; top: 10%; bottom: 10%; width: 1px; background: rgba(139,90,43,0.2);"></div>
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(139,90,43,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-bois-chaud)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
+            <h4 class="t-label" style="font-weight: bold; margin-bottom: 0.8rem; color: var(--c-espresso); text-align: center;">DESIGN & QUALITÉ</h4>
+            <p class="t-body" style="color: rgba(25,24,23,0.8); font-size: 0.95rem; text-align: center;">Des matériaux soigneusement sélectionnés et des finitions soignées.</p>
+          </div>
+          
+          <div style="padding: 0 1rem; position: relative; text-align: center;">
+            <div class="vision-grid-divider" style="position: absolute; left: 0; top: 10%; bottom: 10%; width: 1px; background: rgba(139,90,43,0.2);"></div>
+            <div style="width: 50px; height: 50px; border-radius: 50%; background: rgba(139,90,43,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--c-bois-chaud)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>
+            </div>
+            <h4 class="t-label" style="font-weight: bold; margin-bottom: 0.8rem; color: var(--c-espresso); text-align: center;">ACCOMPAGNEMENT</h4>
+            <p class="t-body" style="color: rgba(25,24,23,0.8); font-size: 0.95rem; text-align: center;">Un suivi personnalisé de la conception à l'installation.</p>
+          </div>
+          
+        </div>
       </div>
+      
+      <!-- Responsive adjustments -->
+      <style>
+        @media (max-width: 768px) {
+          .vision-grid-features {
+             grid-template-columns: 1fr !important;
+             border-top: none !important;
+             gap: 2.5rem !important;
+          }
+          .vision-grid-divider {
+             display: none !important;
+          }
+          .vision-side-line {
+             display: none !important;
+          }
+          .t-h2 {
+             font-size: 2.2rem !important;
+          }
+        }
+      </style>
     </section>
 
     
@@ -160,6 +221,7 @@
     <section id="services" class="section container">
       <div class="services-header reveal">
         <h2 class="t-display">Des espaces pensés<br>dans les <span class="t-italic">moindres détails.</span></h2>
+        <a href="https://www.tiktok.com/@madame_melinaa" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="margin-top: 2rem; display: inline-block;">Voir nos réalisations</a>
       </div>
       
       <style>
@@ -425,6 +487,7 @@
             <li style="margin-bottom: 1rem;">✓ <span style="margin-left: 1rem;">Accompagnement 100% personnalisé</span></li>
             <li style="margin-bottom: 1rem;">✓ <span style="margin-left: 1rem;">Respect strict des délais d'installation</span></li>
           </ul>
+          <a href="#contact" class="btn-primary" style="display: inline-block;">Parler de mon projet</a>
         </div>
         <div class="reveal" style="position: relative; border-radius: 1rem; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); aspect-ratio: 4/5; max-width: 400px; margin: 0 auto;">
           <img src="Image/pourquoi_nous.jpg" alt="PDG Meilleure Menuiserie du Bénin" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
@@ -432,36 +495,49 @@
       </div>
     </section>
 
-<!-- NOUVEAU PROCESSUS -->
+    <!-- NOUVEAU PROCESSUS -->
     <section id="processus" class="section light-theme">
       <div class="container">
         <div class="reveal" style="text-align: center; margin-bottom: 4rem;">
           <h2 class="t-display">Comment nous travaillons.</h2>
-          <p class="t-body-large" style="color: var(--c-bois-chaud);">Un processus clair, sans surprise.</p>
+          <p class="t-body-large" style="color: var(--c-bois-chaud);">Un processus structuré pour votre sérénité.</p>
         </div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
           <div class="reveal" style="padding: 2rem; border: 1px solid rgba(25,24,23,0.1); border-radius: 1rem; background: var(--c-blanc);">
             <div style="font-family: var(--f-heading); font-size: 3rem; color: var(--c-bois-chaud); margin-bottom: 1rem;">01</div>
-            <h3 class="t-h3" style="margin-bottom: 1rem;">L'Écoute</h3>
-            <p class="t-body" style="color: var(--c-espresso);">Nous analysons vos besoins, votre espace et vos goûts lors d'une première consultation détaillée.</p>
+            <h3 class="t-h3" style="margin-bottom: 1rem;">Prise de contact</h3>
+            <p class="t-body" style="color: var(--c-espresso);">Premier échange pour comprendre vos envies et l'envergure de votre projet.</p>
           </div>
           
-          <div class="reveal" style="padding: 2rem; border: 1px solid rgba(25,24,23,0.1); border-radius: 1rem; background: var(--c-blanc); transition-delay: 0.1s;">
+          <div class="reveal" style="padding: 2rem; border: 1px solid rgba(25,24,23,0.1); border-radius: 1rem; background: var(--c-blanc); transition-delay: 0.1s; position: relative;">
+            <div style="position: absolute; top: 1.5rem; right: 1.5rem; background: rgba(139,90,43,0.1); color: var(--c-bois-chaud); font-size: 0.65rem; padding: 0.4rem 0.8rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;">Projet personnalisé</div>
             <div style="font-family: var(--f-heading); font-size: 3rem; color: var(--c-bois-chaud); margin-bottom: 1rem;">02</div>
-            <h3 class="t-h3" style="margin-bottom: 1rem;">La Conception</h3>
-            <p class="t-body" style="color: var(--c-espresso);">Réalisation des plans, choix des matériaux nobles et validation du devis sur-mesure.</p>
+            <h3 class="t-h3" style="margin-bottom: 1rem;">Visite & inspection</h3>
+            <p class="t-body" style="color: var(--c-espresso);">Une visite sur site est nécessaire pour s'imprégner de l'espace et prendre les mesures.</p>
           </div>
           
           <div class="reveal" style="padding: 2rem; border: 1px solid rgba(25,24,23,0.1); border-radius: 1rem; background: var(--c-blanc); transition-delay: 0.2s;">
             <div style="font-family: var(--f-heading); font-size: 3rem; color: var(--c-bois-chaud); margin-bottom: 1rem;">03</div>
-            <h3 class="t-h3" style="margin-bottom: 1rem;">La Fabrication</h3>
+            <h3 class="t-h3" style="margin-bottom: 1rem;">Étude du projet</h3>
+            <p class="t-body" style="color: var(--c-espresso);">Design, sélection des matériaux nobles et conceptualisation technique de vos meubles.</p>
+          </div>
+          
+          <div class="reveal" style="padding: 2rem; border: 1px solid rgba(25,24,23,0.1); border-radius: 1rem; background: var(--c-blanc); transition-delay: 0.3s;">
+            <div style="font-family: var(--f-heading); font-size: 3rem; color: var(--c-bois-chaud); margin-bottom: 1rem;">04</div>
+            <h3 class="t-h3" style="margin-bottom: 1rem;">Devis</h3>
+            <p class="t-body" style="color: var(--c-espresso);">Présentation transparente des coûts et validation du cahier des charges.</p>
+          </div>
+
+          <div class="reveal" style="padding: 2rem; border: 1px solid rgba(25,24,23,0.1); border-radius: 1rem; background: var(--c-blanc); transition-delay: 0.4s;">
+            <div style="font-family: var(--f-heading); font-size: 3rem; color: var(--c-bois-chaud); margin-bottom: 1rem;">05</div>
+            <h3 class="t-h3" style="margin-bottom: 1rem;">Fabrication</h3>
             <p class="t-body" style="color: var(--c-espresso);">Vos meubles prennent vie dans notre atelier, avec une finition artisanale irréprochable.</p>
           </div>
           
-          <div class="reveal" style="padding: 2rem; border: 1px solid rgba(25,24,23,0.1); border-radius: 1rem; background: var(--c-bois-chaud); color: var(--c-blanc); transition-delay: 0.3s;">
-            <div style="font-family: var(--f-heading); font-size: 3rem; color: var(--c-beige); margin-bottom: 1rem;">04</div>
-            <h3 class="t-h3" style="margin-bottom: 1rem;">L'Installation</h3>
+          <div class="reveal" style="padding: 2rem; border: 1px solid rgba(25,24,23,0.1); border-radius: 1rem; background: var(--c-bois-chaud); color: var(--c-blanc); transition-delay: 0.5s;">
+            <div style="font-family: var(--f-heading); font-size: 3rem; color: var(--c-beige); margin-bottom: 1rem;">06</div>
+            <h3 class="t-h3" style="margin-bottom: 1rem;">Installation</h3>
             <p class="t-body" style="color: rgba(255,255,255,0.9);">Livraison et pose experte chez vous, pour un résultat clé en main exceptionnel.</p>
           </div>
         </div>
@@ -476,8 +552,8 @@
           <p class="t-body-large" style="color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 3rem;">Discutons ensemble de vos idées. Nous sommes à votre écoute pour concevoir l'espace qui vous ressemble parfaitement.</p>
           
           <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
-            <a href="https://wa.me/22967585650" target="_blank" class="btn-primary" style="background: var(--c-bois-chaud); color: white; border: none; padding: 1.2rem 2.5rem; font-size: 0.9rem;">PARLER SUR WHATSAPP</a>
-            <a href="tel:0167585650" class="btn-secondary" style="padding: 1.2rem 2.5rem; font-size: 0.9rem;">APPELER DIRECTEMENT</a>
+            <a href="https://wa.me/2290167585650?text=Salut%2C%20j%E2%80%99ai%20vu%20votre%20site%20et%20souhaiterais%20vous%20solliciter%20pour%20la%20r%C3%A9alisation%20d%E2%80%99un%20projet." target="_blank" rel="noopener noreferrer" class="btn-primary" style="background: var(--c-bois-chaud); color: white; border: none; padding: 1.2rem 2.5rem; font-size: 0.9rem;">PARLEZ AU SERVICE CLIENTÈLE</a>
+            <a href="https://www.tiktok.com/@madame_melinaa" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="padding: 1.2rem 2.5rem; font-size: 0.9rem;">NOS RÉSEAUX</a>
           </div>
         </div>
       </div>
