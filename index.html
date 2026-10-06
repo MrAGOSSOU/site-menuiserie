@@ -157,7 +157,7 @@
 
         <span class="t-label" style="color: var(--c-bois-chaud); letter-spacing: 0.2em; display: block; margin-bottom: 1rem; text-align: center;">NOTRE VISION</span>
         
-        <h2 style="font-family: var(--f-serif); font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; color: var(--c-espresso); font-weight: normal; text-align: center;">
+        <h2 class="vision-h2" style="font-family: var(--f-serif); font-size: 3.5rem; line-height: 1.2; margin-bottom: 1.5rem; color: var(--c-espresso); font-weight: normal; text-align: center;">
           Nous transformons les espaces<br>
           <span class="t-italic" style="color: var(--c-bois-chaud);">en intérieurs qui vous ressemblent.</span>
         </h2>
@@ -209,8 +209,8 @@
           .vision-side-line {
              display: none !important;
           }
-          .t-h2 {
-             font-size: 2.2rem !important;
+          .vision-h2 {
+             font-size: 2rem !important;
           }
         }
       </style>
@@ -283,8 +283,8 @@
           .services-bento {
             grid-template-columns: 1fr;
           }
-          .bento-card:nth-child(n) { grid-column: span 1; grid-row: span 1; }
-          .bento-card:nth-child(1) { grid-row: span 2; }
+          .bento-card { grid-column: span 1 !important; grid-row: span 1 !important; }
+          .bento-card:nth-child(1) { grid-row: span 2 !important; }
         }
       </style>
 
@@ -311,7 +311,7 @@
           </div>
         </a>
         <a href="#" data-cat="chambres" class="bento-card reveal open-lightbox-btn">
-          <img src="Image/chambre_new_v2.jpg">
+          <img src="Image/Lit_new.jpg" alt="Chambres">
           <div class="bento-overlay">
             <span class="service-num" style="margin-bottom: 0.5rem; font-size: 0.8rem;">04 — CHAMBRES</span>
             <h3 class="t-h3" style="color: white; margin: 0;">Chambres</h3>
