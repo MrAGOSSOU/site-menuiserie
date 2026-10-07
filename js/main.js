@@ -535,7 +535,7 @@ window.submitDevis = function(e) {
   const message = document.getElementById('devis-message').value;
   
   const text = `Bonjour, je suis ${nom}.\nJe souhaite demander un devis pour un projet de type : ${projet}.\nDétails : ${message}`;
-  const whatsappUrl = `https://wa.me/22967585650?text=Salut%2C%20j%27ai%20vu%20votre%20site%20et%20je%20voudrais%20en%20savoir%20plus.`;
+  const whatsappUrl = `https://wa.me/22967585650?text=Salut%2C%20j%27ai%20vu%20votre%20site%20et%20je%20souhaite%20discuter%20de%20mon%20projet.`;
   
   window.open(whatsappUrl, '_blank');
   document.getElementById('devis-modal').classList.remove('active');
