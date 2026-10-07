@@ -206,22 +206,31 @@
 
     /* Responsive */
     @media (max-width: 992px) {
+      .origine-section {
+        padding-top: 60px;
+      }
+      
+      .origine-content-container {
+        padding: 0.5rem;
+      }
+
       .presentation-card,
       .presentation-card.alt {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 0.5rem;
       }
       
       .slide-wrapper {
         width: 100%;
-        padding: 0 1rem;
+        padding: 0 0.5rem;
       }
 
       .presentation-photo-container {
         width: 100%;
-        height: 40vh;
-        max-height: 400px;
-        aspect-ratio: auto;
+        height: 25vh;
+        min-height: 180px;
+        max-height: 250px;
+        border-radius: 1rem;
       }
       
       .presentation-card.alt .presentation-photo-container {
@@ -230,16 +239,29 @@
 
       .presentation-text {
         width: 100%;
-        padding: 1.5rem;
+        padding: 1.2rem;
+        border-radius: 1rem;
       }
       
       .slide-title {
-        font-size: 2.2rem;
+        font-size: 1.4rem;
+        margin-bottom: 0.2rem;
+      }
+      
+      .slide-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
       }
       
       .slide-text p {
-        font-size: 0.95rem;
-        margin-bottom: 0.8rem;
+        font-size: 0.8rem;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
+      }
+      
+      .return-link {
+        margin-top: 0.5rem;
+        font-size: 0.85rem;
       }
     }
   </style>
