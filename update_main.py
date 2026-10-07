@@ -3,18 +3,30 @@ import sys
 new_js = """
 const galleryData = {
   "cuisines": [
-    "Image/cuisines/57a4fc203dcb2d454a1e8f4522ed4c80.jpg",
-    "Image/cuisines/799229c0dfaed0822dcb96760c54322b.jpg",
-    "Image/cuisines/d07730b8847c1bb994d16fda21deac6d.jpg",
-    "Image/cuisines/IMG_9245.JPG",
-    "Image/cuisines/648a8f300ce304a9df2d887bab481ceb.jpg",
-    "Image/cuisines/4294719e7e2fde77211abc6fe1c50a08.jpg",
-    "Image/cuisines/82a193c6ceb8881f71bc47edac92a840.jpg",
-    "Image/cuisines/b315081c3219bc1245f1ffe83111613d.jpg",
-    "Image/cuisines/2032868a75e30c2d866672f83c5bdc05.jpg",
-    "Image/cuisines/d3824e98ea33632f17b5151c43506e78.jpg",
-    "Image/cuisines/8a161e6da546b9da0a122a51aca7323f.jpg",
-    "Image/cuisines/photo4-cuisine.JPG"
+    "Image/Cuisines de haut standing/4294719e7e2fde77211abc6fe1c50a08.jpg",
+    "Image/Cuisines de haut standing/799229c0dfaed0822dcb96760c54322b.jpg",
+    "Image/Cuisines de haut standing/82a193c6ceb8881f71bc47edac92a840.jpg",
+    "Image/Cuisines de haut standing/8a161e6da546b9da0a122a51aca7323f.jpg",
+    "Image/Cuisines de haut standing/IMG_9245.JPG",
+    "Image/Cuisines de haut standing/IMG_9597.JPG",
+    "Image/Cuisines de haut standing/IMG_9598.JPG",
+    "Image/Cuisines de haut standing/IMG_9599.JPG",
+    "Image/Cuisines de haut standing/IMG_9600.JPG",
+    "Image/Cuisines de haut standing/IMG_9601.JPG",
+    "Image/Cuisines de haut standing/IMG_9602.JPG",
+    "Image/Cuisines de haut standing/IMG_9603.JPG",
+    "Image/Cuisines de haut standing/IMG_9604.JPG",
+    "Image/Cuisines de haut standing/IMG_9606.JPG",
+    "Image/Cuisines de haut standing/IMG_9607.JPG",
+    "Image/Cuisines de haut standing/IMG_9608.JPG",
+    "Image/Cuisines de haut standing/IMG_9609.JPG",
+    "Image/Cuisines de haut standing/IMG_9610.JPG",
+    "Image/Cuisines de haut standing/IMG_9611.JPG",
+    "Image/Cuisines de haut standing/IMG_9612.JPG",
+    "Image/Cuisines de haut standing/b315081c3219bc1245f1ffe83111613d.jpg",
+    "Image/Cuisines de haut standing/d07730b8847c1bb994d16fda21deac6d.jpg",
+    "Image/Cuisines de haut standing/d3824e98ea33632f17b5151c43506e78.jpg",
+    "Image/Cuisines de haut standing/photo4-cuisine.JPG"
   ],
   "dressings": [
     "Image/dressings/bd040f77902ff7d6a4db488f3a3d1911.jpg",
@@ -375,7 +387,7 @@ window.submitDevis = function(e) {
   const message = document.getElementById('devis-message').value;
   
   const text = `Bonjour, je suis ${nom}.\\nJe souhaite demander un devis pour un projet de type : ${projet}.\\nDétails : ${message}`;
-  const whatsappUrl = `https://wa.me/22967585650?text=${encodeURIComponent(text)}`;
+  const whatsappUrl = `https://wa.me/22967585650?text=Salut%2C%20j%27ai%20vu%20votre%20site%20et%20je%20voudrais%20en%20savoir%20plus.`;
   
   window.open(whatsappUrl, '_blank');
   document.getElementById('devis-modal').classList.remove('active');

@@ -177,55 +177,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const galleryData = {
   "cuisines": [
-    "Image/cuisines/57a4fc203dcb2d454a1e8f4522ed4c80.jpg",
-    "Image/cuisines/799229c0dfaed0822dcb96760c54322b.jpg",
-    "Image/cuisines/d07730b8847c1bb994d16fda21deac6d.jpg",
-    "Image/cuisines/IMG_9245.JPG",
-    "Image/cuisines/648a8f300ce304a9df2d887bab481ceb.jpg",
-    "Image/cuisines/4294719e7e2fde77211abc6fe1c50a08.jpg",
-    "Image/cuisines/82a193c6ceb8881f71bc47edac92a840.jpg",
-    "Image/cuisines/b315081c3219bc1245f1ffe83111613d.jpg",
-    "Image/cuisines/2032868a75e30c2d866672f83c5bdc05.jpg",
-    "Image/cuisines/d3824e98ea33632f17b5151c43506e78.jpg",
-    "Image/cuisines/8a161e6da546b9da0a122a51aca7323f.jpg",
-    "Image/cuisines/photo4-cuisine.JPG"
+    "Image/Cuisines de haut standing/82a193c6ceb8881f71bc47edac92a840.jpg",
+    "Image/Cuisines de haut standing/8a161e6da546b9da0a122a51aca7323f.jpg",
+    "Image/Cuisines de haut standing/IMG_9245.JPG",
+    "Image/Cuisines de haut standing/IMG_9597.JPG",
+    "Image/Cuisines de haut standing/IMG_9598.JPG",
+    "Image/Cuisines de haut standing/IMG_9599.JPG",
+    "Image/Cuisines de haut standing/IMG_9600.JPG",
+    "Image/Cuisines de haut standing/IMG_9601.JPG",
+    "Image/Cuisines de haut standing/IMG_9602.JPG",
+    "Image/Cuisines de haut standing/IMG_9603.JPG",
+    "Image/Cuisines de haut standing/IMG_9604.JPG",
+    "Image/Cuisines de haut standing/IMG_9606.JPG",
+    "Image/Cuisines de haut standing/IMG_9607.JPG",
+    "Image/Cuisines de haut standing/IMG_9608.JPG",
+    "Image/Cuisines de haut standing/IMG_9609.JPG",
+    "Image/Cuisines de haut standing/IMG_9610.JPG",
+    "Image/Cuisines de haut standing/IMG_9611.JPG",
+    "Image/Cuisines de haut standing/IMG_9612.JPG",
+    "Image/Cuisines de haut standing/b315081c3219bc1245f1ffe83111613d.jpg",
+    "Image/Cuisines de haut standing/d07730b8847c1bb994d16fda21deac6d.jpg",
+    "Image/Cuisines de haut standing/d3824e98ea33632f17b5151c43506e78.jpg",
+    "Image/Cuisines de haut standing/photo4-cuisine.JPG"
   ],
   "dressings": [
-    "Image/dressings/bd040f77902ff7d6a4db488f3a3d1911.jpg",
-    "Image/dressings/099211b3ba76d0a8ceddf42092ef47ea.jpg",
-    "Image/dressings/36a439065c3ed385a9e6414e7cb7638a.jpg",
-    "Image/dressings/acf583f2cd5ae81a5167ca8fdf1ab179.jpg",
-    "Image/dressings/02de764d6a52aaa24c4050a298967ead.jpg",
-    "Image/dressings/911d67db50bcfc24389ac3af9f0e9bc5.jpg",
-    "Image/dressings/c28a4f20dd3d6430d244a8d275076b1c.jpg",
-    "Image/dressings/0eb2dd96ad2b897d16983500f0b69ccc.jpg",
-    "Image/dressings/7c0fb3301e851dfd196c678b37ab995b.jpg",
-    "Image/dressings/1e29b03451c3cab885e0216801319c55.jpg",
-    "Image/dressings/5dd25528ca083d60eb3a497a74b3aa0b.jpg"
   ],
   "salons": [
-    "Image/saloon/f8c76b55c40475e20afec396b7be8bab.jpg",
-    "Image/saloon/9f413bd936b1b0ddb2ecda414da353e8.jpg",
-    "Image/saloon/e72dd6797a23a38ed1e337fa0563a7aa.jpg",
-    "Image/saloon/1b48110e0a958a540d225062a2cbd450.jpg",
-    "Image/saloon/d3d3112a7c2646e014563ded5d35a44a.jpg",
-    "Image/saloon/192e85f55e0dc646d39599966ffcc602.jpg",
-    "Image/saloon/39ba8176590f61b5e0bdf72a3ba67b66.jpg",
-    "Image/saloon/9d552e5e1294dfb4216aa8b4596a0df6.jpg",
-    "Image/saloon/75d08cb4c05caf343698bac71db7e56b.jpg",
-    "Image/saloon/14194bf12dd9a2505c2b01d4f6a3f9de.jpg",
-    "Image/saloon/487184374813b70c57c383794cf58091.jpg",
-    "Image/saloon/cacd0668015da266106de7103cb78df8.jpg"
   ],
   "chambres": [
-    "Image/chambre/abc00e149bfcf3a9b45c37557920db31.jpg",
-    "Image/chambre/ef6f95bcd123a45124a61f8b8360516d.jpg",
-    "Image/chambre/aa28583344a9f91b3168b15ccd38b8ab.jpg",
-    "Image/chambre/6eef9c3177f17f493cbc78a1b63709d9.jpg",
-    "Image/chambre/252dca03e694004797ac2ceb193dd414.jpg",
-    "Image/chambre/2ad9f249745149100f8a2daf0b24eaf6.jpg",
-    "Image/chambre/398075ef1bdc5896601c799a58475126.jpg",
-    "Image/chambre/520d757300c0258c9b43193a6e964232.jpg"
   ],
   "bureaux": [
     "Image/bureaux/dfd2db8878588a14a353d0715d7b1be2.jpg",
@@ -250,8 +229,6 @@ const galleryData = {
     "Image/salle de bain/ab8f039197ad7b740125543be97870d4.jpg"
   ],
   "cuisines-haut-standing": [
-    "Image/Cuisines de haut standing/4294719e7e2fde77211abc6fe1c50a08.jpg",
-    "Image/Cuisines de haut standing/799229c0dfaed0822dcb96760c54322b.jpg",
     "Image/Cuisines de haut standing/82a193c6ceb8881f71bc47edac92a840.jpg",
     "Image/Cuisines de haut standing/8a161e6da546b9da0a122a51aca7323f.jpg",
     "Image/Cuisines de haut standing/IMG_9245.JPG",
@@ -558,7 +535,7 @@ window.submitDevis = function(e) {
   const message = document.getElementById('devis-message').value;
   
   const text = `Bonjour, je suis ${nom}.\nJe souhaite demander un devis pour un projet de type : ${projet}.\nDétails : ${message}`;
-  const whatsappUrl = `https://wa.me/22967585650?text=${encodeURIComponent(text)}`;
+  const whatsappUrl = `https://wa.me/22967585650?text=Salut%2C%20j%27ai%20vu%20votre%20site%20et%20je%20voudrais%20en%20savoir%20plus.`;
   
   window.open(whatsappUrl, '_blank');
   document.getElementById('devis-modal').classList.remove('active');
