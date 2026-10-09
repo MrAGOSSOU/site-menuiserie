@@ -83,7 +83,7 @@
       <a href="#realisations" class="nav-link">Réalisations</a>
       <a href="#processus" class="nav-link">Notre Processus</a>
       <a href="#a-propos" class="nav-link">À Propos</a>
-      <a href="origine.html" class="nav-link">ORIGINE</a>
+      <a href="#origine" class="nav-link">ORIGINE</a>
       <a href="#faq" class="nav-link">FAQ</a>
     </div>
     <a href="#" onclick="document.getElementById('devis-modal').classList.add('active'); return false;" class="nav-cta">Demander un devis</a>
@@ -106,7 +106,7 @@
     <a href="#processus" class="nav-link">Processus</a>
     <a href="#a-propos" class="nav-link">À Propos</a>
     <a href="#faq" class="nav-link">FAQ</a>
-    <a href="origine.html" class="nav-link">ORIGINE</a>
+    <a href="#origine" class="nav-link">ORIGINE</a>
     <a href="#" onclick="document.getElementById('devis-modal').classList.add('active'); document.querySelector('.mobile-menu').classList.remove('open'); return false;" class="nav-cta" style="margin-top: 1rem; text-align: center; display: block;">Demander un devis</a>
     <a href="#contact" class="nav-link">Contact</a>
   </div>
@@ -504,12 +504,7 @@
       </div>
     </section>
 
-    <div class="container reveal" style="text-align: center; margin-top: 2rem; margin-bottom: 6rem;">
-      <a href="origine.html" class="btn-primary" style="border-radius: 50px; padding: 1.2rem 2.5rem; font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; box-shadow: 0 15px 35px rgba(0,0,0,0.3); display: inline-flex; align-items: center; gap: 0.8rem;">
-        Découvrir l'Histoire des fondateurs
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
-      </a>
-    </div>
+
 
     <!-- NOUVEAU PROCESSUS -->
     <section id="processus" class="section light-theme">
@@ -574,6 +569,399 @@
         </div>
       </div>
     </section>
+
+    <!-- ORIGINE SECTION START -->
+    <style>
+    /* Custom styles for Origine page */
+    .origine-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #000;
+      padding-top: 80px; /* offset for navbar */
+    }
+
+    .origine-bg-container {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .origine-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+
+    .origine-bg.active {
+      opacity: 1;
+    }
+
+    .origine-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,15,15,0.85) 0%, rgba(25,24,23,0.6) 50%, rgba(15,15,15,0.85) 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .origine-content-container {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: calc(100vh - 80px);
+    }
+
+    .slide-wrapper {
+      position: absolute;
+      width: 100%;
+      max-width: 1100px;
+      left: 50%;
+      top: 55%;
+      transform: translate(-50%, -45%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease, transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .slide-wrapper.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -45%) scale(1);
+    }
+    
+    .slide-wrapper:not(.active) {
+      transform: translate(-50%, -40%) scale(0.98);
+    }
+
+    .presentation-card {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .presentation-card.alt {
+      flex-direction: row-reverse;
+    }
+
+    .presentation-photo-container {
+      flex: 1;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+      aspect-ratio: 3/4;
+      max-height: 70vh;
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .presentation-card.alt .presentation-photo-container {
+      transform: translateX(30px);
+    }
+
+    .slide-wrapper.active .presentation-photo-container {
+      opacity: 1;
+      transform: translateX(0);
+      transition-delay: 0.3s;
+    }
+
+    .presentation-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .presentation-text {
+      flex: 1.2;
+      background: rgba(25, 24, 23, 0.5);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      padding: 3rem;
+      border-radius: 1.5rem;
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .presentation-card.alt .presentation-text {
+      transform: translateX(-30px);
+    }
+
+    .slide-wrapper.active .presentation-text {
+      opacity: 1;
+      transform: translateX(0);
+      transition-delay: 0.5s;
+    }
+
+    /* Staggered Animations inside text */
+    .slide-wrapper .stagger-item {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .slide-wrapper.active .stagger-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-wrapper.active .stagger-item:nth-child(1) { transition-delay: 0.7s; }
+    .slide-wrapper.active .stagger-item:nth-child(2) { transition-delay: 0.85s; }
+    .slide-wrapper.active .stagger-item:nth-child(3) { transition-delay: 1.0s; }
+    .slide-wrapper.active .stagger-item:nth-child(4) { transition-delay: 1.15s; }
+    .slide-wrapper.active .stagger-item:nth-child(5) { transition-delay: 1.3s; }
+
+    /* Typography Overrides */
+    .slide-title {
+      font-family: var(--f-serif, serif);
+      font-size: 2.8rem;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .slide-subtitle {
+      font-family: var(--f-sans, sans-serif);
+      font-size: 1.1rem;
+      color: var(--c-bois-chaud, #C08A59);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .slide-text p {
+      font-family: var(--f-sans, sans-serif);
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+
+    .origine-title-wrap {
+      position: absolute;
+      top: 65px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .origine-title-wrap {
+        top: 60px;
+      }
+      .origine-title-wrap h2 {
+        font-size: 2.2rem;
+      }
+      .origine-title-wrap p {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+      }
+
+      .origine-section {
+        padding-top: 80px;
+      }
+      
+      .origine-content-container {
+        padding: 0;
+      }
+
+      .presentation-card,
+      .presentation-card.alt {
+        flex-direction: column;
+        height: 100%;
+        gap: 0.5rem;
+        padding-bottom: 1rem;
+      }
+      
+      .slide-wrapper {
+        width: 100%;
+        height: calc(100vh - 160px);
+        top: 160px;
+        left: 0;
+        transform: none;
+        padding: 1rem;
+        box-sizing: border-box;
+        overflow-y: auto;
+      }
+      
+      .slide-wrapper:not(.active) {
+        transform: scale(0.98);
+      }
+      
+      .slide-wrapper.active {
+        transform: scale(1);
+      }
+
+      .presentation-photo-container {
+        width: 100%;
+        flex: none;
+        aspect-ratio: 1 / 1;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        border-radius: 1rem;
+      }
+      
+      .presentation-photo {
+        object-position: 50% 20%; /* Centre horizontalement, légèrement sous le bord haut pour les visages */
+      }
+
+      .presentation-text {
+        width: 100%;
+        padding: 1.5rem 1rem;
+        border-radius: 1rem;
+        box-sizing: border-box;
+      }
+      
+      .slide-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.2rem;
+      }
+      
+      .slide-subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .slide-text p {
+        font-size: 0.8rem;
+        line-height: 1.4;
+        margin-bottom: 0.4rem;
+      }
+    }
+    </style>
+    
+    <section class="origine-section" id="origine">
+      <!-- Section Title -->
+      <div class="origine-title-wrap reveal">
+        <h2 class="t-display" style="color: var(--c-blanc);">Les fondateurs</h2>
+        <p class="t-body" style="color: rgba(255, 255, 255, 0.9); margin-top: 1rem;">L'histoire derrière Meilleure Menuiserie du Bénin.</p>
+      </div>
+
+      <!-- Arrière-plan: Meubles TV en fondu -->
+      <div class="origine-bg-container">
+        <img src="Image/Meubles TV/IMG_9515.JPG" class="origine-bg active" alt="Meuble TV">
+        <img src="Image/Meubles TV/IMG_9517.JPG" class="origine-bg" alt="Meuble TV">
+        <img src="Image/Meubles TV/IMG_9520.JPG" class="origine-bg" alt="Meuble TV">
+        <img src="Image/Meubles TV/IMG_9523.JPG" class="origine-bg" alt="Meuble TV">
+        <div class="origine-overlay"></div>
+      </div>
+
+      <div class="origine-content-container">
+        
+        <!-- Slide 1: Amos -->
+        <div class="slide-wrapper active" data-slide="1">
+          <div class="presentation-card">
+            <div class="presentation-photo-container">
+              <img src="Image/Fond/fondateur.JPG" class="presentation-photo" alt="Amos Gandonou">
+            </div>
+            <div class="presentation-text">
+              <h2 class="slide-title stagger-item">Amos GANDONOU</h2>
+              <div class="slide-subtitle stagger-item">Cofondateur</div>
+              <div class="slide-text">
+                <p class="stagger-item">
+                  « Je suis Amos GANDONOU, comptable de formation, autoentrepreneur et cofondateur de Meilleure Menuiserie, à Cotonou.
+                </p>
+                <p class="stagger-item">
+                  En 2020, j’ai créé cette entreprise avec ma partenaire, Emmanuella Agossou, autour d’un projet commun : concevoir des meubles et des aménagements sur mesure, adaptés aux besoins de chaque client.
+                </p>
+                <p class="stagger-item">
+                  Aujourd’hui, nous développons ensemble une entreprise familiale portée par une équipe jeune et dynamique. Notre ambition : transformer vos intérieurs avec des réalisations qui allient esthétique, fonctionnalité et soin des finitions. »
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Emmanuella -->
+        <div class="slide-wrapper" data-slide="2">
+          <!-- .alt inverse la direction : texte à gauche, photo à droite fixée en bas -->
+          <div class="presentation-card alt">
+            <div class="presentation-photo-container">
+              <img src="Image/Fond/cofondateur.JPG" class="presentation-photo" alt="Emmanuella Agossou">
+            </div>
+            <div class="presentation-text">
+              <h2 class="slide-title stagger-item">EMMANUELLA AGOSSOU</h2>
+              <div class="slide-subtitle stagger-item">(Madame Melina) — Cofondatrice</div>
+              <div class="slide-text">
+                <p class="stagger-item">
+                  « Je suis Emmanuella Agossou (Madame Melina), cofondatrice de Meilleure Menuiserie, à Cotonou.
+                </p>
+                <p class="stagger-item">
+                  Diplômée en analyse biologique et biochimique, j’ai choisi de donner vie à ma passion pour la menuiserie et la décoration d’intérieur, portée par mon désir d’indépendance financière et l’envie de bâtir un projet qui me ressemble. En 2020, j’ai ainsi créé Meilleure Menuiserie avec mon partenaire.
+                </p>
+                <p class="stagger-item">
+                  Aujourd’hui, notre entreprise familiale rassemble une équipe jeune et dynamique, unie par le goût du travail bien fait.
+                </p>
+                <p class="stagger-item">
+                  Notre conviction : transformer chaque intérieur avec des meubles qui reflètent la personnalité de ceux qui y vivent. Ensemble, nous concevons des aménagements sur mesure qui allient esthétique, fonctionnalité et confort au quotidien, avec une attention particulière portée au soin des finitions. »
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 1. Background Image Slideshow Logic
+        const bgImages = document.querySelectorAll('.origine-bg');
+        let currentBg = 0;
+        
+        if(bgImages.length > 0) {
+          setInterval(() => {
+            bgImages[currentBg].classList.remove('active');
+            currentBg = (currentBg + 1) % bgImages.length;
+            bgImages[currentBg].classList.add('active');
+          }, 5000); // Crossfade every 5 seconds
+        }
+
+        // 2. Foreground Presentation Slideshow Logic
+        const slidesOrigine = document.querySelectorAll('.slide-wrapper');
+        let currentSlideOrigine = 0;
+        const totalSlidesOrigine = slidesOrigine.length;
+        
+        function nextSlideOrigine() {
+          if (totalSlidesOrigine > 0) {
+            // Hide current slide completely
+            slidesOrigine[currentSlideOrigine].classList.remove('active');
+            
+            // Wait for it to animate out, then switch
+            setTimeout(() => {
+              currentSlideOrigine = (currentSlideOrigine + 1) % totalSlidesOrigine;
+              slidesOrigine[currentSlideOrigine].classList.add('active');
+            }, 1200); // 1.2s delay to allow exit animation
+          }
+        }
+
+        // Rotate foreground slides every 30 seconds
+        if (totalSlidesOrigine > 0) {
+          setInterval(nextSlideOrigine, 30000); 
+        }
+      });
+    </script>
+    <!-- ORIGINE SECTION END -->
     
   
   </main>
