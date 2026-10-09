@@ -105,7 +105,8 @@
 
     .presentation-card.alt .presentation-photo-container {
       transform: translateX(30px);
-      align-self: flex-end; /* Image fixée en bas à droite */
+      aspect-ratio: 1 / 1;
+      max-width: 400px;
     }
 
     .slide-wrapper.active .presentation-photo-container {
@@ -250,7 +251,10 @@
       }
       
       .presentation-card.alt .presentation-photo-container {
-        align-self: stretch;
+        align-self: center;
+        max-width: 300px;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto;
       }
       
       .presentation-photo {
