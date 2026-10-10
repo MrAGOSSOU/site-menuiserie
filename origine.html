@@ -60,25 +60,20 @@
     }
 
     .slide-wrapper {
-      position: absolute;
+      position: relative;
       width: 100%;
       max-width: 1100px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 1s ease, transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+      margin: 2rem auto;
+      opacity: 1;
+      pointer-events: auto;
     }
 
     .slide-wrapper.active {
       opacity: 1;
       pointer-events: auto;
-      transform: translate(-50%, -50%) scale(1);
     }
     
     .slide-wrapper:not(.active) {
-      transform: translate(-50%, -45%) scale(0.98);
     }
 
     .presentation-card {
@@ -224,21 +219,16 @@
       
       .slide-wrapper {
         width: 100%;
-        height: calc(100vh - 80px);
-        top: 80px;
-        left: 0;
-        transform: none;
+        height: auto;
         padding: 1rem;
         box-sizing: border-box;
-        overflow-y: auto;
+        overflow-y: visible;
       }
       
       .slide-wrapper:not(.active) {
-        transform: scale(0.98);
       }
       
       .slide-wrapper.active {
-        transform: scale(1);
       }
 
       .presentation-photo-container {
@@ -339,33 +329,8 @@
 
       <div class="origine-content-container">
         
-        <!-- Slide 1: Amos -->
+        <!-- Slide 1: Emmanuella -->
         <div class="slide-wrapper active" data-slide="1">
-          <div class="presentation-card">
-            <div class="presentation-photo-container">
-              <img src="Image/Fond/fondateur.JPG" class="presentation-photo" alt="Amos Gandonou">
-            </div>
-            <div class="presentation-text">
-              <h2 class="slide-title stagger-item">Amos GANDONOU</h2>
-              <div class="slide-subtitle stagger-item">Cofondateur</div>
-              <div class="slide-text">
-                <p class="stagger-item">
-                  « Je suis Amos GANDONOU, comptable de formation, autoentrepreneur et cofondateur de Meilleure Menuiserie, à Cotonou.
-                </p>
-                <p class="stagger-item">
-                  En 2020, j’ai créé cette entreprise avec ma partenaire, Emmanuella Agossou, autour d’un projet commun : concevoir des meubles et des aménagements sur mesure, adaptés aux besoins de chaque client.
-                </p>
-                <p class="stagger-item">
-                  Aujourd’hui, nous développons ensemble une entreprise familiale portée par une équipe jeune et dynamique. Notre ambition : transformer vos intérieurs avec des réalisations qui allient esthétique, fonctionnalité et soin des finitions. »
-                </p>
-              </div>
-              <a href="index.html" class="return-link stagger-item">← Retour au site</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 2: Emmanuella -->
-        <div class="slide-wrapper" data-slide="2">
           <!-- .alt inverse la direction : texte à gauche, photo à droite fixée en bas -->
           <div class="presentation-card alt">
             <div class="presentation-photo-container">
@@ -386,6 +351,31 @@
                 </p>
                 <p class="stagger-item">
                   Notre conviction : transformer chaque intérieur avec des meubles qui reflètent la personnalité de ceux qui y vivent. Ensemble, nous concevons des aménagements sur mesure qui allient esthétique, fonctionnalité et confort au quotidien, avec une attention particulière portée au soin des finitions. »
+                </p>
+              </div>
+              <a href="index.html" class="return-link stagger-item">← Retour au site</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Amos -->
+        <div class="slide-wrapper active" data-slide="2">
+          <div class="presentation-card">
+            <div class="presentation-photo-container">
+              <img src="Image/Fond/fondateur.JPG" class="presentation-photo" alt="Amos Gandonou">
+            </div>
+            <div class="presentation-text">
+              <h2 class="slide-title stagger-item">Amos GANDONOU</h2>
+              <div class="slide-subtitle stagger-item">Cofondateur</div>
+              <div class="slide-text">
+                <p class="stagger-item">
+                  « Je suis Amos GANDONOU, comptable de formation, autoentrepreneur et cofondateur de Meilleure Menuiserie, à Cotonou.
+                </p>
+                <p class="stagger-item">
+                  En 2020, j’ai créé cette entreprise avec ma partenaire, Emmanuella Agossou, autour d’un projet commun : concevoir des meubles et des aménagements sur mesure, adaptés aux besoins de chaque client.
+                </p>
+                <p class="stagger-item">
+                  Aujourd’hui, nous développons ensemble une entreprise familiale portée par une équipe jeune et dynamique. Notre ambition : transformer vos intérieurs avec des réalisations qui allient esthétique, fonctionnalité et soin des finitions. »
                 </p>
               </div>
               <a href="index.html" class="return-link stagger-item">← Retour au site</a>
@@ -501,24 +491,7 @@
         bgImages[currentBg].classList.add('active');
       }, 5000); // Crossfade every 5 seconds
 
-      // 2. Foreground Presentation Slideshow Logic
-      const slides = document.querySelectorAll('.slide-wrapper');
-      let currentSlide = 0;
-      const totalSlides = slides.length;
-      
-      function nextSlide() {
-        // Hide current slide completely
-        slides[currentSlide].classList.remove('active');
-        
-        // Wait for it to animate out, then switch
-        setTimeout(() => {
-          currentSlide = (currentSlide + 1) % totalSlides;
-          slides[currentSlide].classList.add('active');
-        }, 1200); // 1.2s delay to allow exit animation
-      }
-
-      // Rotate foreground slides every 30 seconds
-      setInterval(nextSlide, 30000); 
+ 
     });
   </script>
 </body>
