@@ -270,12 +270,11 @@ const galleryData = {
     "Image/Dressings lumineux luxeux/IMG_9627.JPG"
   ],
   "lit": [
+    "Image/LIT/IMG_9960.JPG",
+    "Image/LIT/IMG_9961.JPG",
+    "Image/LIT/IMG_9962.JPG",
+    "Image/LIT/IMG_9964.JPG",
     "Image/LIT/252dca03e694004797ac2ceb193dd414.jpg",
-    "Image/LIT/2ad9f249745149100f8a2daf0b24eaf6.jpg",
-    "Image/LIT/398075ef1bdc5896601c799a58475126.jpg",
-    "Image/LIT/6eef9c3177f17f493cbc78a1b63709d9.jpg",
-    "Image/LIT/IMG_9559.JPG",
-    "Image/LIT/IMG_9560.JPG",
     "Image/LIT/IMG_9561.JPG",
     "Image/LIT/IMG_9562.JPG",
     "Image/LIT/IMG_9563.JPG",
@@ -284,7 +283,6 @@ const galleryData = {
     "Image/LIT/IMG_9566.JPG",
     "Image/LIT/IMG_9567.JPG",
     "Image/LIT/IMG_9568.JPG",
-    "Image/LIT/IMG_9569.JPG",
     "Image/LIT/IMG_9570.JPG",
     "Image/LIT/IMG_9571.JPG",
     "Image/LIT/IMG_9572.JPG",
@@ -293,8 +291,7 @@ const galleryData = {
     "Image/LIT/IMG_9575.JPG",
     "Image/LIT/IMG_9576.JPG",
     "Image/LIT/IMG_9578.JPG",
-    "Image/LIT/IMG_9579.JPG",
-    "Image/LIT/aa28583344a9f91b3168b15ccd38b8ab.jpg"
+    "Image/LIT/IMG_9579.JPG"
   ],
   "dressing-individuel": [
     "Image/Dressing individuel/02de764d6a52aaa24c4050a298967ead.jpg",
